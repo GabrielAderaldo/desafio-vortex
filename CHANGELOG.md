@@ -21,6 +21,8 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
   `UserPromptSubmit` e redação de segredos.
 - Guarda de imutabilidade dos ADRs (`PreToolUse`) e geração automática do índice de
   decisões (`PostToolUse`).
+- `Justfile` como ponto único de entrada das tarefas do repositório, com a receita
+  `just check` servindo de portão de verificação ([ADR-0001](docs/handbook/adr/ADR-0001-adotar-just-como-task-runner.md)).
 
 ---
 

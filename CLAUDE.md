@@ -1,5 +1,15 @@
 # CLAUDE.md — Desafio Vortex
 
+## Tarefas
+
+Toda tarefa repetitiva do repositório é uma receita no `Justfile`. Use `just --list`
+para descobrir o que existe — não invente comandos soltos nem os documente fora dali.
+
+- `just check` é o **portão de verificação**: rode antes de considerar um trabalho
+  pronto, e mostre a saída em vez de afirmar que passou.
+- Ao escrever receita com `docker --format`, dobre **só a abertura** das chaves:
+  `{{{{.Name}}`. É a colisão conhecida entre `just` e Go templates (ver ADR-0001).
+
 ## Handbook
 
 A documentação de engenharia vive em `docs/handbook/`, com um guia de uso em
