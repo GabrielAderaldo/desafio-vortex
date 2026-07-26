@@ -1,0 +1,12 @@
+# Captura bruta dos prompts — matéria-prima do Diário de Bordo.
+# Fica fora do Git: contém caminhos locais, trechos colados e ruído de sessão.
+# O que é publicado são os episódios curados em docs/ai-log/.
+.ai-log/
+
+.DS_Store
+node_modules/
+dist/
+build/
+.env
+.env.*
+!.env.example
