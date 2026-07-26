@@ -44,6 +44,46 @@ refs-vscode:
       "$sha" "$data" > "$dest/FONTE.md"
     echo "✅ $(find "$dest" -name '*.md' | wc -l | tr -d ' ') arquivos em $dest ($(du -sh "$dest" | cut -f1))"
 
+# Baixa a documentação do ecossistema Claude (Code, API e Design) para consulta offline
+refs-claude:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    b="docs/handbook/offline-reference"
+    hoje="$(date +%F)"
+
+    echo "→ Claude Code…"
+    mkdir -p "$b/claude-code"
+    curl -sSL --max-time 60  https://code.claude.com/docs/llms.txt      -o "$b/claude-code/_index.txt"
+    curl -sSL --max-time 240 https://code.claude.com/docs/llms-full.txt -o "$b/claude-code/_full.txt"
+
+    echo "→ Claude API…"
+    mkdir -p "$b/claude-api"
+    curl -sSL --max-time 60  https://docs.claude.com/llms.txt      -o "$b/claude-api/_index.txt"
+    curl -sSL --max-time 600 https://docs.claude.com/llms-full.txt -o "$b/claude-api/_full.txt"
+
+    # Claude Design não tem llms.txt — os artigos são baixados um a um, por ID.
+    # Se um novo artigo surgir, ninguém é notificado: acrescente à lista na mão.
+    echo "→ Claude Design (sem índice — lista manual)…"
+    mkdir -p "$b/claude-design"
+    for a in 14604416-get-started-with-claude-design \
+             14604397-set-up-your-design-system-in-claude-design \
+             14604406-claude-design-admin-guide-for-team-and-enterprise-plans ; do
+      out="$b/claude-design/${a#*-}.md"
+      if curl -sfL --max-time 30 "https://support.claude.com/en/articles/$a.md" -o "$out"; then
+        echo "  ✅ ${a#*-}"
+      else
+        echo "  ⚠️  ${a#*-} indisponível — artigo pode ter mudado de slug"; rm -f "$out"
+      fi
+    done
+
+    for d in claude-code claude-api claude-design; do
+      printf "%-14s %s\n" "$d" "$(du -sh "$b/$d" | cut -f1)"
+    done
+    echo "⚠️  Os FONTE.md não são regerados por esta receita — revise as datas neles."
+
+# Baixa TODA a documentação offline (VS Code + Claude)
+refs: refs-vscode refs-claude
+
 # Portão de verificação — o que precisa passar antes de considerar o trabalho pronto
 check: adr-check
     @echo "✅ verificações passaram"
