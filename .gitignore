@@ -3,6 +3,17 @@
 # O que é publicado são os episódios curados em docs/ai-log/.
 .ai-log/
 
+# Handbook — as pastas existem no repositório (via .gitkeep), o conteúdo não sobe.
+
+# Documentação de terceiros: licença alheia, peso alto e ruído em todo diff.
+docs/handbook/offline-reference/*
+!docs/handbook/offline-reference/.gitkeep
+!docs/handbook/offline-reference/README.md
+
+# Rascunhos: sobem quando viram documento, não antes.
+docs/handbook/_drafts/*
+!docs/handbook/_drafts/.gitkeep
+
 .DS_Store
 node_modules/
 dist/
