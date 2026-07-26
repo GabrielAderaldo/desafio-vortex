@@ -11,7 +11,9 @@ relevante não vira entrada; um dia com dois bugs difíceis vira dois arquivos.
 
 | # | Episódio | Data | Ferramenta | Houve erro da IA? |
 |---|----------|------|------------|-------------------|
-| — | _(preencher conforme acontecem)_ | | | |
+| [EP-001](EP-001-escolha-do-task-runner.md) | Escolher um task runner sem ter dado para decidir | 2026-07-26 | Claude Opus 5 via Claude Code | Parcial — escape de sintaxe errado na 1ª tentativa |
+| [EP-002](EP-002-versao-do-compose-quase-corrigida-errado.md) | A IA quase me "corrigiu" com informação desatualizada | 2026-07-26 | Claude Opus 5 via Claude Code | **Sim** — versão do Compose desatualizada |
+| [EP-003](EP-003-permissoes-do-agente-errado.md) | Documentei as permissões da ferramenta errada | 2026-07-26 | Claude Opus 5 via Claude Code | **Sim** — settings do Copilot num projeto sem Copilot |
 
 ## Segredos nos prompts
 
