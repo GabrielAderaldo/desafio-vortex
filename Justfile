@@ -81,8 +81,12 @@ refs-claude:
     done
     echo "⚠️  Os FONTE.md não são regerados por esta receita — revise as datas neles."
 
+# Baixa a documentação das tecnologias candidatas (Darto, HTMX, MDN/PWA, OpenAPI…)
+refs-stack:
+    @./scripts/refs-stack.sh
+
 # Baixa TODA a documentação offline (VS Code + Claude)
-refs: refs-vscode refs-claude
+refs: refs-vscode refs-claude refs-stack
 
 # Testa os hooks contra os casos que já quebraram (ver docs/ai-log/EP-004)
 test-hooks:
