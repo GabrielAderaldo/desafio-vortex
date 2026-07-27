@@ -15,6 +15,7 @@ relevante não vira entrada; um dia com dois bugs difíceis vira dois arquivos.
 | [EP-002](EP-002-versao-do-compose-quase-corrigida-errado.md) | A IA quase me "corrigiu" com informação desatualizada | 2026-07-26 | Claude Opus 5 via Claude Code | **Sim** — versão do Compose desatualizada |
 | [EP-003](EP-003-permissoes-do-agente-errado.md) | Documentei as permissões da ferramenta errada | 2026-07-26 | Claude Opus 5 via Claude Code | **Sim** — settings do Copilot num projeto sem Copilot |
 | [EP-004](EP-004-o-portao-que-nao-fechava.md) | O portão que eu declarei testado três vezes e não fechava | 2026-07-26 | Claude Opus 5 + 4 subagentes (WAR ROOM) | **Sim** — 5 bugs, incluindo bypass da imutabilidade dos ADRs |
+| [EP-005](EP-005-a-teoria-que-confirmou-a-pratica.md) | Quando a teoria confirma a prática em vez de corrigi-la | 2026-07-27 | Claude Opus 5 + MCP `acdg-skills` | Menor — bug de parser; e as lacunas foram declaradas, não preenchidas |
 
 ## Segredos nos prompts
 
