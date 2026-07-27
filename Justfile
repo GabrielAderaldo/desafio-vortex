@@ -84,8 +84,31 @@ refs-claude:
 # Baixa TODA a documentação offline (VS Code + Claude)
 refs: refs-vscode refs-claude
 
+# Testa os hooks contra os casos que já quebraram (ver docs/ai-log/EP-004)
+test-hooks:
+    @python3 scripts/test-hooks.py
+
+# Salva o .ai-log fora do repositório (gitignored, sem backup seria cópia única)
+log-backup:
+    #!/usr/bin/env bash
+    # O .ai-log é matéria-prima do Diário de Bordo, que é entregável — e é
+    # gitignored, então o Git não o protege. Guarda as 10 versões mais recentes.
+    set -euo pipefail
+    origem=".ai-log/raw-prompts.md"
+    [ -f "$origem" ] || { echo "nada a salvar: $origem não existe"; exit 0; }
+    destino="${AI_LOG_BACKUP_DIR:-$HOME/.local/share/ai-log-backups}/desafio-vortex"
+    mkdir -p "$destino"
+    carimbo="$(date +%Y%m%d-%H%M%S)"
+    cp "$origem" "$destino/raw-prompts-$carimbo.md"
+    # Rotação: mantém as 10 mais recentes.
+    ls -1t "$destino"/raw-prompts-*.md 2>/dev/null | tail -n +11 | while read -r velho; do
+      rm -f "$velho"
+    done
+    echo "✅ $(du -h "$origem" | cut -f1) → $destino/raw-prompts-$carimbo.md"
+    echo "   ($(ls -1 "$destino"/raw-prompts-*.md | wc -l | tr -d ' ') cópias guardadas)"
+
 # Portão de verificação — o que precisa passar antes de considerar o trabalho pronto
-check: adr-check
+check: adr-check test-hooks
     @echo "✅ verificações passaram"
 
 # Mesmas verificações que o CI roda, para não divergirem
