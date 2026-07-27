@@ -1,28 +1,28 @@
 ---
 name: projeto-quem-e-o-usuario
-description: Neste repo não há usuário final — os afetados são Gabriel, o avaliador do desafio e os agentes de IA; e os critérios do avaliador são desconhecidos
+description: Os três afetados deste repo (Gabriel, banca, agentes) e onde o edital verificado vive — o avaliador deixou de ser inferido em 2026-07-27
 metadata:
   type: project
 ---
 
-Nas decisões de ferramental/harness deste repositório **não existe usuário final**. Os
-três afetados são:
+Os três afetados por decisões neste repositório:
 
-1. **Gabriel** — mantém o repo sob prazo, ver [[usuario-gabriel-perfil]].
-2. **O avaliador do desafio** — clona, lê e roda. Nunca conversou com o Gabriel. Seus
-   primeiros minutos são `README.md`, a aplicação rodando, o `git log` e
-   `docs/ai-log/` (o desafio pede diário de uso de IA).
-3. **Agentes de IA** que operam no repo — leem `CLAUDE.md` como lei. Regra escrita que
-   o código contradiz gera churn e hesitação.
+1. **Gabriel** — único dev, sob prazo. Ver [[usuario-gabriel-perfil]].
+2. **A banca avaliadora** — **deixou de ser usuário inferido em 2026-07-27**: o edital
+   entrou no repo em `docs/vortex-propose-documentation/md/Edital-desafio-tecnico-fullstack-estagio.md`
+   (versão Typst irmã em `../typst/edital.typ`). Os 4 eixos de nota, a estrutura
+   cronometrada do vídeo de 6 min e a lista de requisitos mínimos/bônus são **texto
+   verificável**. Citar o arquivo, não o palpite.
+3. **Agentes de IA** que operam no repo — leem `CLAUDE.md` como lei.
 
-**Buraco recorrente: o enunciado do desafio não está no repositório.** Sem ele, tudo o
-que se afirma sobre o que o avaliador valoriza é **inferido**. Ninguém sabe se harness/
-tooling sequer entra na nota. Duas fantasias simétricas a evitar: "o avaliador penaliza
-bash" e "o avaliador admira hooks em TypeScript" — nenhuma tem apoio.
+**O "estudante universitário" continua fictício.** O edital *declara* a dor ("facilitar
+acesso a material para quem está ingressando") mas não a prova. Não há entrevista nem
+dado. Qualquer afirmação sobre ele é premissa do edital repetida, não achado de pesquisa.
 
 **Why:** o formato WAR ROOM existe para impedir solução elegante para problema que
-ninguém tem; sem enunciado, o risco de inventar o usuário é máximo.
+ninguém tem. Antes de 2026-07-27 o risco era inventar o avaliador; agora o risco mudou de
+lugar — é inventar o estudante, ou citar o edital de memória em vez de abrir o arquivo.
 
-**How to apply:** antes de justificar qualquer decisão com "o avaliador vai perceber X",
-rotule como inferido e diga o que faria a afirmação ser verificável. Se o enunciado
-entrar no repo, atualize esta memória — ela deixa de ser válida.
+**How to apply:** ao afirmar "o avaliador valoriza X", cole o trecho do edital. Ao afirmar
+"o estudante precisa de Y", rotule inferido e diga o que a pessoa faria no lugar se o
+sistema não existisse.

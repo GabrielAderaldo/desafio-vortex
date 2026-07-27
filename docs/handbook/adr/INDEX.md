@@ -2,7 +2,7 @@
 
 > **Arquivo gerado — não edite à mão.** Regenerar com `python3 scripts/adr-index.py`.
 
-2 decisões registradas · **2 em vigor** · 0 fora de vigor
+3 decisões registradas · **3 em vigor** · 0 fora de vigor
 
 ## Em vigor
 
@@ -10,6 +10,7 @@
 |----|---------|------|-------------|------|
 | [ADR-0001](ADR-0001-adotar-just-como-task-runner.md) | Adotar just como task runner do projeto | 2026-07-26 | `repo`, `infra` | `tooling`, `automacao`, `dx`, `agentes` |
 | [ADR-0002](ADR-0002-pipeline-w0-w3-e-sdd.md) | Adotar a pipeline W0→W3 e o SDD como processo de engenharia | 2026-07-27 | `repo`, `processo` | `processo`, `tdd`, `bdd`, `pipeline`, `auditoria`, `qualidade` |
+| [ADR-0003](ADR-0003-stack-fsharp-spa-e-sessao-por-cookie.md) | Adotar F# no backend, SPA React no frontend e sessão por cookie HttpOnly | 2026-07-27 | `api`, `web` | `stack`, `fsharp`, `react`, `spa`, `seguranca`, `sessao`, `pwa` |
 
 ## Histórico completo
 
@@ -17,12 +18,15 @@
 |----|---------|--------|------|-----------|-----------------|
 | [ADR-0001](ADR-0001-adotar-just-como-task-runner.md) | Adotar just como task runner do projeto | 🟢 Aceito | 2026-07-26 | — | — |
 | [ADR-0002](ADR-0002-pipeline-w0-w3-e-sdd.md) | Adotar a pipeline W0→W3 e o SDD como processo de engenharia | 🟢 Aceito | 2026-07-27 | — | — |
+| [ADR-0003](ADR-0003-stack-fsharp-spa-e-sessao-por-cookie.md) | Adotar F# no backend, SPA React no frontend e sessão por cookie HttpOnly | 🟢 Aceito | 2026-07-27 | — | — |
 
 ## Por componente
 
+- **`api`** — ADR-0003
 - **`infra`** — ADR-0001
 - **`processo`** — ADR-0002
 - **`repo`** — ADR-0001, ADR-0002
+- **`web`** — ADR-0003
 
 ## Por tag
 
@@ -31,8 +35,15 @@
 - **`automacao`** — ADR-0001
 - **`bdd`** — ADR-0002
 - **`dx`** — ADR-0001
+- **`fsharp`** — ADR-0003
 - **`pipeline`** — ADR-0002
 - **`processo`** — ADR-0002
+- **`pwa`** — ADR-0003
 - **`qualidade`** — ADR-0002
+- **`react`** — ADR-0003
+- **`seguranca`** — ADR-0003
+- **`sessao`** — ADR-0003
+- **`spa`** — ADR-0003
+- **`stack`** — ADR-0003
 - **`tdd`** — ADR-0002
 - **`tooling`** — ADR-0001

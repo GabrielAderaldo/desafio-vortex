@@ -42,6 +42,33 @@ Receita que funcionou (Claude Code 2.1.220):
 `--debug-file <path>`. `PermissionRequest` não dispara com `-p` (documentado); usar
 `PreToolUse` para testar decisão de permissão.
 
+## Ferramentas MCP não chegam a subagente (2026-07-27)
+
+Rodando como subagente de war room, o toolset era só Read/Bash/Write/Edit/WebSearch/
+WebFetch — **sem `ToolSearch`**, portanto sem `mcp__dart__*`, `mcp__docker-docs__*`,
+`mcp__security__*`, `mcp__reverse-proxy__*`. Não adianta o orquestrador pedir "carregue
+com ToolSearch". Substitutos que funcionaram igual ou melhor:
+
+| Em vez de | Usar |
+|---|---|
+| `mcp__dart__pub_dev_search` | `curl -s https://pub.dev/api/packages/<p>` e `.../score` — devolve `grantedPoints`, `likeCount`, `downloadCount30Days` e tags como `is:discontinued` |
+| `mcp__docker-docs__*` | `curl -s https://hub.docker.com/v2/repositories/library/<img>/tags` para tamanho por arquitetura |
+| `mcp__security__*` | `raw.githubusercontent.com/OWASP/CheatSheetSeries/master/cheatsheets/<X>.md` via WebFetch |
+
+## Medir tamanho de imagem Docker sem se enganar
+
+`docker image inspect --format '{{.Size}}'` e `docker save | wc -c` dão valores
+inconsistentes com manifest list (OrbStack/containerd). Os dois confiáveis:
+- `docker images --tree` → colunas **Size** e **Content size** (o que trafega).
+- `docker create` + `docker export | wc -c` → rootfs descompactado real.
+
+## `dart pub get` com cache isolado
+
+`~/.pub-cache` já tinha darto/dartonic (1,4 GB) — mediria cache quente sem avisar.
+`export PUB_CACHE=<scratchpad>/pubcache-frio` isola de verdade e revela o custo real
+de um clone limpo. Não esquecer de exportar em **toda** chamada Bash (o cwd e o env
+resetam entre chamadas).
+
 ## Onde estão os artefatos
 
 `scratchpad/bench-hooks/` — `bench2.py` (harness bom), `adr-guard.ts`, `adr_guard.py`
