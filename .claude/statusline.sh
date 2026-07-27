@@ -27,7 +27,13 @@ partes=()
 [ -n "$modelo" ] && partes+=("\033[1;35m${modelo}\033[0m")
 
 # Contexto: verde até 50%, amarelo até 80%, vermelho acima.
-if [ -n "$usados" ] && [ -n "$total" ] && [ "$total" != "0" ]; then
+#
+# Os valores são validados como inteiros antes da aritmética. `$(( ))` do shell
+# expande variáveis recursivamente: um campo não-numérico aborta o script sob
+# `set -u`, e em versões sem `-u` seria um vetor de execução de comando.
+ehnum() { case "$1" in ''|*[!0-9]*) return 1 ;; *) return 0 ;; esac; }
+
+if ehnum "${usados:-}" && ehnum "${total:-}" && [ "$total" -gt 0 ]; then
   pct=$(( usados * 100 / total ))
   if   [ "$pct" -lt 50 ]; then cor="32"
   elif [ "$pct" -lt 80 ]; then cor="33"
@@ -52,4 +58,8 @@ if [ -n "$dir" ] && git -C "$dir" rev-parse --git-dir >/dev/null 2>&1; then
   fi
 fi
 
+# `${partes[*]}` com array vazio sob `set -u` é erro no bash 3.2 — que é o bash que
+# vem de fábrica no macOS (/bin/bash, 3.2.57). O `+` só expande se o array tiver
+# elementos, mantendo o script compatível com 3.2 e 5.x.
+[ ${#partes[@]} -eq 0 ] && exit 0
 printf '%b' "$(IFS='│'; echo "${partes[*]}")" | sed 's/│/ │ /g'
