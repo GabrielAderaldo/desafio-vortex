@@ -107,8 +107,16 @@ log-backup:
     echo "✅ $(du -h "$origem" | cut -f1) → $destino/raw-prompts-$carimbo.md"
     echo "   ($(ls -1 "$destino"/raw-prompts-*.md | wc -l | tr -d ' ') cópias guardadas)"
 
+# Regenera docs/pipeline/INDEX.md e audita as invariantes W0→W3
+pipeline-index:
+    @python3 scripts/pipeline-index.py
+
+# Falha se o índice da pipeline estiver desatualizado ou houver invariante violada
+pipeline-check:
+    @python3 scripts/pipeline-index.py --check
+
 # Portão de verificação — o que precisa passar antes de considerar o trabalho pronto
-check: adr-check test-hooks
+check: adr-check pipeline-check test-hooks
     @echo "✅ verificações passaram"
 
 # Mesmas verificações que o CI roda, para não divergirem

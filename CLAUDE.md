@@ -34,9 +34,14 @@ As regras detalhadas vivem em `.claude/rules/`:
 
 | Arquivo | Assunto |
 |---------|---------|
+| `pipeline.md` | **W0→W3, regressão zero e a regra de não reverter trabalho alheio** |
 | `handbook.md` | ADR/RFC/Design Doc/PRD/Runbook — e a imutabilidade dos ADRs |
 | `diario-de-bordo.md` | Episódios de IA em `docs/ai-log/` |
 | `segredos.md` | Convenção `[SECRET:NOME]` e `[NOLOG]` |
+
+Duas regras de `pipeline.md` valem sempre, e não têm exceção: **todo vermelho na
+sessão é regressão a corrigir agora** — nunca "não é meu erro" — e **código alheio não
+se reverte sem consultar**.
 
 Regras com `paths:` no front-matter só carregam quando você toca arquivos que casam
 com o glob — use isso ao criar regras de `apps/api/` ou `apps/web/`.
