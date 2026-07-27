@@ -21,6 +21,19 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
   `UserPromptSubmit` e redação de segredos.
 - Guarda de imutabilidade dos ADRs (`PreToolUse`) e geração automática do índice de
   decisões (`PostToolUse`).
+- Pipeline **W0→W3** com estado em front-matter e seis invariantes auditadas
+  ([ADR-0002](docs/handbook/adr/ADR-0002-pipeline-w0-w3-e-sdd.md)), fundamentada em
+  Kent Beck, Sam Newman e Gregory & Crispin.
+- Suíte com 37 casos de teste dos hooks, validada por sabotagem, ligada ao
+  `just check`.
+- Formato WAR ROOM — quatro papéis com memória de projeto, para decisões com caminhos
+  defensáveis concorrentes.
+- Documentação offline de 5 ecossistemas (Claude, VS Code, Lean UX, stack candidata),
+  populada por `just refs`.
+- Edital do desafio transcrito em Typst, separando o texto oficial das anotações do
+  candidato.
+- Decisão de stack: **F# + SPA React + sessão por cookie `HttpOnly`**
+  ([ADR-0003](docs/handbook/adr/ADR-0003-stack-fsharp-spa-e-sessao-por-cookie.md)).
 - `Justfile` como ponto único de entrada das tarefas do repositório, com a receita
   `just check` servindo de portão de verificação ([ADR-0001](docs/handbook/adr/ADR-0001-adotar-just-como-task-runner.md)).
 
