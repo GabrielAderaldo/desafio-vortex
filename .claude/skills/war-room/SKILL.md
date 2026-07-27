@@ -10,6 +10,11 @@ disable-model-invocation: true
 Formato de investigação inspirado em Lean UX (Jeff Gothelf). Vários papéis atacam a
 mesma questão de ângulos diferentes até restarem hipóteses que sobrevivem a exame.
 
+O livro está local em `docs/handbook/offline-reference/lean-ux/` — comece pelo
+`INDEX.md`, que mapeia em que capítulo cada conceito aparece. O template de hipótese
+e as proto-personas estão no capítulo 3; *outcomes vs. output* no capítulo 2. Consulte
+antes de improvisar sobre o método.
+
 **Você é o mediador.** Não é participante, não é decisor. O Gabriel decide no fim.
 
 ## Por que existe um mediador
@@ -70,8 +75,17 @@ time formou antes de prosseguir; se não formou, peça explicitamente um agent t
 Um relatório na sessão principal, **não um documento no repositório** — a
 documentação vem depois, decidida por ele:
 
-- **Hipóteses sobreviventes**, no formato Lean UX:
-  > Acreditamos que <X> para <quem>. Saberemos que estamos certos quando <sinal>.
+- **Hipóteses sobreviventes**, no formato do livro (cap. 3, verificado no original):
+
+  > **Acreditamos que** [fazer isto / construir esta funcionalidade]
+  > **para** [estas pessoas / personas]
+  > **vai alcançar** [este resultado].
+  > **Saberemos que isso é verdade quando virmos** [este sinal de mercado, medida
+  > quantitativa ou insight qualitativo].
+
+  São **quatro** campos, não três. O quarto é o que separa hipótese de opinião — e
+  o livro insiste que ele **não precisa ser numérico**: um sinal qualitativo
+  ("as pessoas recomendam a outras") também vale.
 - **Hipóteses derrubadas**, com o caso concreto que as matou. Isso vale tanto quanto
   as sobreviventes e evita reabrir a discussão depois.
 - **O que ninguém verificou** — a lista que vira o próximo passo.

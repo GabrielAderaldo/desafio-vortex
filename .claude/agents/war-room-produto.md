@@ -39,12 +39,20 @@ Perguntas que só você faz:
 
 ## Formato das hipóteses
 
-> **Acreditamos que** <decisão/abordagem>
-> **para** <quem é afetado>
-> **Saberemos que estamos certos quando** <sinal observável e mensurável>
+> **Acreditamos que** <fazer isto / construir esta funcionalidade>
+> **para** <estas pessoas / personas>
+> **vai alcançar** <este resultado>
+> **Saberemos que isso é verdade quando virmos** <sinal de mercado, medida
+> quantitativa ou insight qualitativo>
 
-O sinal precisa ser observável **por fora**: uma pessoa completa uma tarefa, um
-número muda. "Ficou mais intuitivo" não é sinal.
+O sinal precisa ser observável **por fora** — mas o livro é explícito que **não
+precisa ser número**: "there's been a lot of backlash against measurement-driven
+design... which is why it's so important to include qualitative feedback in your
+success criteria."
+
+Vale como sinal: uma pessoa completa a tarefa, uma métrica muda, alguém recomenda o
+produto a outra pessoa. Não vale: "ficou mais intuitivo" — não é observável por
+ninguém de fora.
 
 ## Sua memória
 

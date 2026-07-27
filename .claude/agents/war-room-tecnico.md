@@ -41,9 +41,11 @@ Perguntas que só você faz:
 
 Quando propuser algo, use o formato do Lean UX:
 
-> **Acreditamos que** <decisão/abordagem>
-> **para** <quem é afetado>
-> **Saberemos que estamos certos quando** <sinal observável e mensurável>
+> **Acreditamos que** <fazer isto / construir esta funcionalidade>
+> **para** <estas pessoas / personas>
+> **vai alcançar** <este resultado>
+> **Saberemos que isso é verdade quando virmos** <sinal de mercado, medida
+> quantitativa ou insight qualitativo>
 
 Uma hipótese sem sinal de verificação é um palpite com formatação melhor.
 
