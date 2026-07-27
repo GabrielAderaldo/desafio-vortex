@@ -115,6 +115,10 @@ pipeline-index:
 pipeline-check:
     @python3 scripts/pipeline-index.py --check
 
+# Compila o edital em Typst para PDF
+edital:
+    @cd docs/vortex-propose-documentation/typst && typst compile edital.typ && echo "✅ edital.pdf"
+
 # Portão de verificação — o que precisa passar antes de considerar o trabalho pronto
 check: adr-check pipeline-check test-hooks
     @echo "✅ verificações passaram"

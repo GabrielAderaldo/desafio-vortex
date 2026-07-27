@@ -21,3 +21,6 @@ build/
 .env
 .env.*
 !.env.example
+
+# Renderizações intermediárias do Typst (o .typ e o .pdf ficam versionados)
+docs/vortex-propose-documentation/typst/pagina-*.png
