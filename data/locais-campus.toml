@@ -1,0 +1,88 @@
+# Pontos de encontro do campus da UNIFOR
+#
+# Lugares conhecidos, movimentados e fáceis de achar, onde as trocas devem
+# acontecer. Não é uma lista de endereços — é o vocabulário do campus escrito
+# para quem ainda não o conhece.
+#
+# POR QUE ESTE ARQUIVO EXISTE
+#
+#   Segurança      quem chega não marca encontro num canto vazio
+#   Onboarding     o calouro aprende onde ficam os lugares enquanto pega um livro
+#   Propósito      o item é pretexto do encontro (ADR-0004); aqui o encontro
+#                  deixa de ser abstrato e vira um lugar com nome
+#
+# REGRA DE CURADORIA
+#
+# Tudo neste arquivo é curado e a interface recomenda. Se um dia locais puderem
+# ser sugeridos por quem publica, eles NÃO entram aqui: ficam separados e sem o
+# selo, porque a garantia de "movimentado e seguro" é justamente o que este
+# arquivo dá e uma lista aberta não daria.
+#
+# CAMPOS
+#
+#   slug             identificador estável, minúsculo, sem acento. Nunca muda
+#   nome             o nome principal — o que aparece na interface
+#   tambem_chamado   outros nomes pelos quais o lugar é conhecido. Ver abaixo
+#   onde_fica        uma linha para quem nunca foi. Referência, não endereço
+#   historia         opcional. Por que o lugar é conhecido, o que já aconteceu ali
+#   movimento        opcional. Quando costuma ter gente
+#   seguranca        opcional. Só quando há algo concreto — vigilância, portaria
+#
+# SOBRE `tambem_chamado`
+#
+# O mesmo lugar tem nomes diferentes conforme a geração e o curso de quem fala.
+# Registrar os dois lados é o que impede o calouro de aprender um nome e não
+# entender o outro — e é justamente o conhecimento que hoje só passa de veterano
+# para calouro. É também o primeiro tijolo de um perfil de local, se um dia ele
+# existir.
+#
+# CÓDIGOS DE HORÁRIO DA UNIFOR
+#
+# As aulas são divididas em três turnos e blocos de duas aulas. Os códigos abaixo
+# aparecem em `movimento`, sempre acompanhados da tradução — quem acabou de chegar
+# não decodifica "MAB", e é para essa pessoa que o campo existe.
+#
+#   MANHÃ    MAB  7h30–9h10    ·  MCD   9h30–11h10  ·  MEF  11h20–13h
+#   TARDE    TAB  13h30–15h10  ·  TCD  15h30–17h10  ·  TEF  17h20–19h
+#   NOITE    NAB  19h–20h40    ·  NCD  21h–22h40
+#
+# QUANTOS
+#
+# Quatro ou cinco. Muitos viram fricção na hora de escolher; um só não serve
+# para quem estuda do outro lado do campus.
+
+[[local]]
+slug = "dj"
+nome = "DJ"
+tambem_chamado = ["Banco Santander", "Santander", "Caramanchão"]
+onde_fica = "Caramanchão entre o Bloco D e o Bloco J — onde fica a agência do Banco Santander."
+historia = "O apelido vem dos próprios blocos: D + J. É ponto histórico dos cursos de tecnologia, e por anos foi onde o pessoal se reunia para jogar card game — Yu-Gi-Oh! e Magic, principalmente."
+movimento = "Cheio a manhã inteira e do fim da tarde ao começo da noite (MAB, MCD, MEF, TEF, NAB). Esvazia entre 13h30 e 17h."
+seguranca = ""
+
+[[local]]
+slug = "cc"
+nome = "CC"
+tambem_chamado = ["Centro de Convivência"]
+onde_fica = "Centro de convivência, onde fica a praça de alimentação."
+historia = "É o centro de convivência principal do campus — o ponto onde todo mundo passa em algum momento do dia."
+movimento = "Cheio nos intervalos das aulas da manhã e da tarde. À noite esvazia por volta das 21h."
+seguranca = ""
+
+[[local]]
+slug = "biblioteca"
+nome = "Biblioteca"
+tambem_chamado = []
+onde_fica = "Ao lado da reitoria."
+historia = "Referência que todo mundo sabe achar, mesmo quem acabou de chegar ao campus."
+movimento = "Movimento moderado o dia inteiro, sem horário de pico."
+seguranca = "Vigilância no local. Ambiente fechado e climatizado."
+
+# [[local]]
+# slug = ""
+# nome = ""
+# tambem_chamado = []
+# onde_fica = ""
+# historia = ""
+# movimento = ""
+# seguranca = ""

@@ -1,5 +1,14 @@
 # Proto-personas
 
+> ⚠️ **SUPERADO por `15-personas-revisadas.md`.** Estas personas foram segmentadas por
+> *quem tem material parado*. O [ADR-0004](../handbook/adr/ADR-0004-produto-existe-para-agregar-ao-ecossistema.md)
+> mudou o produto para "agregar o estudante ao ecossistema", e o mapa de empatia mostrou
+> que o eixo real é **grau de pertencimento**, não posse de material.
+>
+> Mantido como está, sem edição, porque registra o raciocínio com a informação
+> disponível na época — e porque a comparação entre as duas versões é o que mostra o
+> que a mudança de enquadramento fez.
+
 **Cerimônia 4 do upstream** · Lean UX cap. 3
 **Entrada:** `02-sintese-questionario.md` (n=4, com o Achado 7) · `03-problem-statement.md`
 
