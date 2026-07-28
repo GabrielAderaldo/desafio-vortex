@@ -83,8 +83,13 @@ sinal de que o gesto fechou. Não é observável aqui.
 - [ ] Um estudante identificado publica um item informando título, descrição, categoria, se é doação ou venda com preço, e o endereço de uma imagem
 - [ ] Um estudante identificado vê os itens que ele mesmo publicou, e em que estado estão
 - [ ] Quem se interessa por um item registra esse interesse, e só então obtém como falar com quem publicou
-- [ ] Quem publicou vê quem se interessou e **marca qual pessoa recebeu o item**
-- [ ] O item passa a exibir que já encontrou destino
+- [ ] Quem publicou vê quem se interessou e **reserva o item para uma dessas pessoas**
+- [ ] O item reservado continua visível, com um selo, e quem se interessou sabe que já tem alguém
+- [ ] Quem vai receber ganha um **código**, que mostra no encontro
+- [ ] Quem publicou digita o código e o item passa a exibir que **encontrou destino**
+- [ ] Quando o código não é possível, quem publicou encerra o item declarando a entrega — e isso fica registrado como declaração de um lado só
+- [ ] Qualquer um dos dois desfaz a reserva, e o item volta a circular
+- [ ] Quem demonstrou interesse acompanha, numa tela própria, em que pé está cada item que quis
 - [ ] Quem publicou remove um item que não quer mais oferecer
 - [ ] A aplicação se instala na tela inicial do celular e funciona como aplicativo
 - [ ] A mesma aplicação serve uma página rica no computador e uma experiência de aplicativo no celular
@@ -101,9 +106,15 @@ sinal de que o gesto fechou. Não é observável aqui.
 - **Conversa dentro do sistema** — mensagens, comentários ou chat. O contato acontece no
   canal institucional que os estudantes já usam. Construir mais um canal seria pedir que
   adotassem um lugar novo para fazer o que já fazem.
-- **Confirmação pelo lado de quem recebeu.** Exigiria essa pessoa voltar ao sistema, e
-  não há evidência de que voltaria. O registro de destino serve a quem entregou — que já
-  sabe para quem entregou — e não a uma auditoria.
+- **Confirmação depois de receber.** Pedir que quem recebeu volte ao sistema *depois* de
+  estar com o item — quando não tem mais motivo nenhum para abrir o app. Isso continua
+  fora.
+
+  > **Revisão de 2026-07-28.** A versão anterior cortava a confirmação bilateral
+  > inteira. Ela voltou, em outro ponto do fluxo: **o código é mostrado antes da
+  > entrega, quando a pessoa ainda quer o item**, e quem confirma é quem publicou. A
+  > distinção é entre pedir uma volta *depois* — que ninguém faz — e mostrar algo
+  > *durante* — que acontece no encontro que já ia acontecer.
 - **Avaliação, nota ou reputação.** Não responde à objeção real, que é sobre o material
   ter **bom cuidado** — e saber quem é a pessoa não diz como ela vai tratar o item.
 - **Busca por texto.** Não foi pedida e não apareceu em nenhuma entrevista.
@@ -124,17 +135,22 @@ flowchart TD
 
   D --> E[Outro estudante vê o item e quer]
   E --> F[Registra interesse e se identifica]
-  F --> G[Recebe o nome para procurar no chat do campus]
+  F --> G[Recebe o contato para procurar quem publicou]
 
-  G --> H[Conversam fora do sistema e combinam a entrega]
-  H --> I[Entregam o item pessoalmente]
+  G --> H[Conversam fora do sistema e combinam onde e quando]
+  H --> I[Quem publicou reserva o item para essa pessoa]
+  I --> J[O item ganha selo de reservado, e quem recebe ganha um código]
 
-  I --> J[Quem publicou marca quem recebeu]
-  J --> K[O item passa a mostrar que encontrou destino]
-  K --> L[Quem publicou vê, em seus itens, que aquilo serviu a alguém]
+  J --> K[Encontram-se num dos pontos do campus]
+  K --> L[Quem recebe mostra o código]
+  L --> M[Quem publicou digita e confirma]
+
+  M --> N[O item encontrou destino]
+  N --> O[Quem publicou vê, em seus itens, que aquilo chegou a alguém]
 
   style H fill:#f5f5f5,stroke:#999,stroke-dasharray: 5 5
-  style L stroke-width:3px
+  style K fill:#f5f5f5,stroke:#999,stroke-dasharray: 5 5
+  style O stroke-width:3px
 ```
 
 O trecho tracejado acontece **fora do produto**, e é uma escolha. O passo destacado no
@@ -149,8 +165,10 @@ Do ponto de vista de quem usa.
 | Situação | O que a pessoa vive | O que o produto faz |
 |----------|---------------------|---------------------|
 | **Publiquei e ninguém quis** | O item fica parado. É o cenário mais comum e o mais desanimador | O item continua disponível. Nenhuma promessa é feita sobre quando alguém aparecerá — dizer "logo alguém verá" seria mentira |
-| **Duas pessoas querem o mesmo item** | Preciso escolher | Quem publicou vê todos os interessados e escolhe quem recebeu. Não há fila automática nem reserva — a combinação acontece entre as pessoas |
-| **Combinei e a pessoa não apareceu** | Perdi tempo, e o item segue comigo | O item nunca é marcado como entregue. Continua disponível, e outra pessoa pode se interessar |
+| **Duas pessoas querem o mesmo item** | Preciso escolher | Quem publicou vê todos os interessados e reserva para uma delas. As outras veem que o item foi reservado — sem saber para quem — e decidem se esperam |
+| **Combinei e a pessoa não apareceu** | Perdi tempo, e o item segue comigo | Qualquer um dos dois desfaz a reserva. O item volta a ficar disponível, e quem já tinha demonstrado interesse continua na lista |
+| **Entreguei e a pessoa sumiu sem me dar o código** | Não consigo fechar, e o item não é mais meu | Existe o caminho "entreguei, mas não consegui o código". O item encerra, marcado como declarado por um lado só — e essa marca fica |
+| **Reservei para alguém e mudei de ideia** | Quero doar para outra pessoa, ou não doar mais | Desfaz a reserva e reserva para outro interessado. Ou remove o anúncio, o que também libera quem estava esperando |
 | **Entreguei e esqueci de marcar** | Meus itens mostram algo desatualizado | Ninguém é cobrado. O item permanece disponível até quem publicou dizer o contrário — o sistema não presume o que não sabe |
 | **Não encontro a pessoa no chat do campus** | Sei que alguém quer, e não consigo falar | Depende do que a pessoa escolheu exibir. É a razão de a escolha do contato existir |
 | **Marquei a pessoa errada** | O registro fica incorreto | Quem publicou pode corrigir. O registro serve a ele, não a terceiros |

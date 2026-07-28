@@ -758,7 +758,7 @@ implementação.
 |---|---|---|---|
 | **I1** | A mesma pessoa não registra interesse duas vezes no mesmo anúncio | `12:205` | `Anúncio` |
 | **I2** | Ninguém registra interesse no próprio anúncio | `12:206` | `Anúncio` |
-| **I3** | Anúncio que **não está `Disponível`** não aceita novos interesses | `12:207`, `12:235` + C6 | `Anúncio` |
+| **I3** | Anúncio **`Encerrado`** não aceita novos interesses | `12` H-08 + C6 | `Anúncio` |
 | **I4** | O reservado é **um dos interessados** — nunca um nome digitado | `12:232` | `Anúncio` ← *é esta que fecha a fronteira* |
 | **I5** | Anúncio em `DestinoConfirmado` sai da vitrine pública | `12:233`, `12:100` | `Anúncio` |
 | **I6** | Preço existe se e somente se a oferta for venda | `12:140`, `D2` | `Anúncio` |
@@ -1310,9 +1310,13 @@ ou aceitá-la é de produto.
 
 > **C6 acrescentou uma segunda forma dela, e esta é pior.** `I21` diz que a reserva não
 > expira — *adiar é o estado padrão*. Um anúncio pode então ficar `Reservado`
-> indefinidamente, e um item **reservado** é mais nocivo à vitrine que um item parado: ele
-> ocupa lugar, não pode receber interesse (`I3`) e **não é oferta nenhuma**. O anúncio
-> abandonado ao menos ainda promete algo.
+> indefinidamente, e um item **reservado** ocupa lugar na vitrine sem ser oferta plena.
+>
+> **Atenualizado em 2026-07-28:** este parágrafo dizia que reservado *"não pode receber
+> interesse (`I3`)"*. Deixou de ser verdade — a decisão de produto em `12` H-08 **aceita**
+> interesse em item reservado, e `I3` foi reescrita para valer só em `Encerrado`. O
+> problema encolhe: quem chega vê o selo, decide se espera, e se a reserva cair já há
+> gente por perto.
 >
 > Continua não bloqueando os 15 dias, e continua sendo decisão de produto. Registrado
 > porque a mesma pergunta agora tem duas respostas possíveis, e uma delas — dar prazo à
@@ -1427,10 +1431,16 @@ escolhido*, e a vitrine é a que existe; (2) um item que some e volta a cada des
 falsifica o "sinal de vida" de `H-12` na direção contrária; (3) "reservado" é uma afirmação
 verdadeira e o produto ganha em mostrá-la — é movimento visível, que é o que `H-12` pede.
 
-E, junto: **`I3` foi generalizada** de *"item entregue não aceita interesses"* para *"item
-que não está `Disponível` não aceita interesses"*. Isso é escolha, não dedução: reservado
-que aceitasse interesse revelaria o contato a quem não pode ter o item — custo de
-privacidade sem contrapartida. **Ambas viram teste da W0, e ambas são decisão de produto.**
+E, junto: **`I3` foi proposta como *"item que não está `Disponível` não aceita
+interesses"*, e o Gabriel decidiu o contrário.** Ela vale hoje só para `Encerrado`.
+
+O argumento que eu tinha era de privacidade: reservado que aceitasse interesse revelaria
+o contato a quem não pode ter o item. **O argumento que venceu é melhor:** quem vê o selo
+e quer mesmo assim é exatamente quem se beneficia se a reserva cair — e ele já estará
+por perto, sem depender de notificação que o produto não tem. O custo de privacidade é
+real e foi aceito: o contato é revelado a alguém que talvez nunca receba o item.
+
+**Vira teste da W0 na forma decidida, não na proposta.**
 
 ---
 
