@@ -123,6 +123,10 @@ pipeline-check:
 edital:
     @cd docs/vortex-propose-documentation/typst && typst compile edital.typ && echo "✅ edital.pdf"
 
+# Compila a síntese do upstream — o PDF que reúne o processo, os episódios e a entrevista
+sintese:
+    @cd docs/sintese/typst && typst compile sintese-upstream.typ && echo "✅ sintese-upstream.pdf"
+
 # Portão de verificação — o que precisa passar antes de considerar o trabalho pronto
 check: adr-check pipeline-check test-hooks
     @echo "✅ verificações passaram"
