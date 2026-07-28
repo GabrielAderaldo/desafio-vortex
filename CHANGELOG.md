@@ -22,6 +22,18 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
 - Pesquisa com pessoas reais (4 entrevistas estruturadas), com o instrumento, as
   respostas brutas e a síntese versionados — incluindo os defeitos do próprio
   instrumento e as limitações da amostra.
+- Cerimônias 5 a 8: outcomes, cinco hipóteses no formato de quatro campos, corte de
+  escopo e story map com as quatro fatias que virarão tickets da pipeline.
+- **Matriz de rastreabilidade dos requisitos** do edital — cada exigência obrigatória
+  citada literalmente, mapeada para onde é atendida, com o estado atual.
+
+### Modificado
+
+- **README preenchido** — nome do projeto, proposta ancorada no problema real do campus,
+  tecnologias com a justificativa de cada escolha, e o **Diário de Bordo da IA completo**:
+  ferramentas, três prompts reais e a reflexão crítica com dois casos de erro. As seções
+  que dependem de código executável ficaram marcadas com `PENDENTE`, porque comandos não
+  são escritos antes de serem executados.
 
 - Estrutura de documentação em `docs/handbook/` — ADR, RFC, Design Doc, PRD, Runbook
   e diagramas Mermaid, com templates baseados nas referências canônicas de cada formato.
