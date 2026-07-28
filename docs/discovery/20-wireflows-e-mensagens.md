@@ -1,5 +1,12 @@
 # Wireflows e mensagens de erro
 
+> 🎨 **Os quatro wireflows também existem em versão visual** — no
+> [Figma](https://www.figma.com/design/CdsBhUgsktZep2jV8phblJ/VORTEX---PROCESSO-SELETIVO)
+> (fonte viva) e como PNG em [`docs/design/exportado/`](../design/exportado/) (snapshot
+> versionado). Os diagramas Mermaid abaixo e as figuras dizem a mesma coisa — as figuras
+> tornam visível uma ausência que a prosa esconde: **o código não aparece em nenhuma tela
+> do fluxo de reserva.**
+
 **Cerimônia 18 do upstream**
 **Entrada:** `19-jobs-to-be-done.md` · `18-decisoes-de-interacao.md` ·
 `12-historias-e-criterios-de-aceite.md` (v2) · `16-modelo-de-dados-por-perfil.md` ·

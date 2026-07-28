@@ -27,6 +27,10 @@ institucional que os estudantes já têm. Não construímos mais um canal de men
 📄 **O raciocínio completo** — pesquisa com estudantes, hipóteses e o corte de escopo —
 está em [`docs/discovery/`](docs/discovery/).
 
+🎨 **As jornadas e os wireflows** estão no
+[Figma](https://www.figma.com/design/CdsBhUgsktZep2jV8phblJ/VORTEX---PROCESSO-SELETIVO)
+e, como snapshot versionado, em [`docs/design/exportado/`](docs/design/exportado/).
+
 ## Sumário
 
 - [Tecnologias](#tecnologias)

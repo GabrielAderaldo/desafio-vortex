@@ -1,5 +1,10 @@
 # Jobs to be Done, User Flows e Journey Mapping
 
+> 🎨 **As duas jornadas também existem em versão visual** — no
+> [Figma](https://www.figma.com/design/CdsBhUgsktZep2jV8phblJ/VORTEX---PROCESSO-SELETIVO)
+> (fonte viva) e como PNG em [`docs/design/exportado/`](../design/exportado/) (snapshot
+> versionado). O texto abaixo é a fonte do raciocínio; a figura mostra a forma.
+
 **Cerimônia 17 do upstream**
 **Entrada:** `02-sintese-questionario.md` (as falas) · `01-questionario-proto-personas_respostas.md`
 (a fonte literal) · `14-mapa-de-empatia.md` · `15-personas-revisadas.md` · `PRD-0001` ·
