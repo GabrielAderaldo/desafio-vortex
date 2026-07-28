@@ -1,7 +1,7 @@
 # Jobs to be Done, User Flows e Journey Mapping
 
 > 🎨 **As duas jornadas também existem em versão visual** — no
-> [Figma](https://www.figma.com/design/CdsBhUgsktZep2jV8phblJ/VORTEX---PROCESSO-SELETIVO)
+> [Figma](https://www.figma.com/community/file/1663876864232938978)
 > (fonte viva) e como PNG em [`docs/design/exportado/`](../design/exportado/) (snapshot
 > versionado). O texto abaixo é a fonte do raciocínio; a figura mostra a forma.
 

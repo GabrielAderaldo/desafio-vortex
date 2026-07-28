@@ -1,6 +1,6 @@
 # Artefatos de design — snapshot exportado
 
-**Fonte viva:** [VORTEX — PROCESSO SELETIVO no Figma](https://www.figma.com/design/CdsBhUgsktZep2jV8phblJ/VORTEX---PROCESSO-SELETIVO)
+**Fonte viva:** [VORTEX — PROCESSO SELETIVO no Figma](https://www.figma.com/community/file/1663876864232938978)
 **Snapshot de:** 2026-07-28
 
 > **Estas imagens são cópia, não original.** Se elas divergirem do Figma, **o Figma está

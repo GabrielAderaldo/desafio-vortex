@@ -1,7 +1,7 @@
 # Wireflows e mensagens de erro
 
 > 🎨 **Os quatro wireflows também existem em versão visual** — no
-> [Figma](https://www.figma.com/design/CdsBhUgsktZep2jV8phblJ/VORTEX---PROCESSO-SELETIVO)
+> [Figma](https://www.figma.com/community/file/1663876864232938978)
 > (fonte viva) e como PNG em [`docs/design/exportado/`](../design/exportado/) (snapshot
 > versionado). Os diagramas Mermaid abaixo e as figuras dizem a mesma coisa — as figuras
 > tornam visível uma ausência que a prosa esconde: **o código não aparece em nenhuma tela
