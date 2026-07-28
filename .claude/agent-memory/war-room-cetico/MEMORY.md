@@ -6,3 +6,5 @@
 - [Enquadramento do mediador](enquadramento-do-mediador.md) — atacar o enunciado do round antes das hipóteses; o erro herdado mora ali.
 - [Round da stack: o que caiu](round-stack-o-que-caiu.md) — spec-first é possível, a probe não faz CRUD, 163 vs 15,5 MB não se comparam.
 - [Round da stack: não verificado](round-stack-nao-verificado.md) — a linha 56 do edital, o prazo real, e por que ninguém abriu o código do darto.
+- [Discovery: integridade da evidência](round-discovery-integridade-da-evidencia.md) — P04 respondeu depois de ler os outros; o que caiu e o que sobreviveu nas marcas 🟢.
+- [Premissa aceita não se propaga](premissa-aceita-nao-se-propaga.md) — ao aceitar X, varrer o que já foi dito pressupondo ¬X; custos envelhecem sem avisar.

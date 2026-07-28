@@ -15,6 +15,14 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
 
 ### Adicionado
 
+- **Upstream do produto** em `docs/discovery/` — cerimônias 1 a 4 do Lean UX: problem
+  statement, 18 suposições declaradas e graduadas por evidência, priorização de risco e
+  proto-personas. O problema foi enquadrado como **o gesto sem resposta**: quem entrega
+  material no campus nunca descobre se ele serviu.
+- Pesquisa com pessoas reais (4 entrevistas estruturadas), com o instrumento, as
+  respostas brutas e a síntese versionados — incluindo os defeitos do próprio
+  instrumento e as limitações da amostra.
+
 - Estrutura de documentação em `docs/handbook/` — ADR, RFC, Design Doc, PRD, Runbook
   e diagramas Mermaid, com templates baseados nas referências canônicas de cada formato.
 - Diário de Bordo da IA em `docs/ai-log/`, com captura automática de prompts via hook
