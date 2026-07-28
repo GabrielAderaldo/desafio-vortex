@@ -141,6 +141,125 @@ Recomendação: dizer isso em voz alta no vídeo em vez de fingir.
   15-20 s de 120. Restrição derivada: **o "destino visível" precisa ser um estado em que
   o app já está quando a câmera chega** (dado semeado), não um estado que a demo produz.
 
+- **H15 (a garantia prévia está REFUTADA — o concorrente é uma geladeira)** — o
+  follow-up de 2026-07-28 em `01-...respostas.md:164` caracterizou as "pequenas
+  iniciativas": **uma geladeira velha no ponto de ônibus** e **uma caixa de sucata no
+  bloco D**. P04: *"cheguei a deixar minhas apostilas do ensino médio lá uma vez, porém
+  fiquei INSEGURO se realmente foi útil ou eu estava só 'espalhando lixo'"*.
+  **Ele usou.** Logo: (a) minha leitura de que o ato de fé é na entrega e não depois está
+  **contrariada pelo caso fundador**; (b) `02:38-40` ("o canal existia e ele optou por não
+  usar") cai — não é recusa prévia, é **abandono após uso**; (c) a cláusula **(ii)** de
+  B02 ("o que aconteceu com ele"), que cortamos, é a **mais bem evidenciada do produto** —
+  e segue pagando **zero** em todos os quatro eixos.
+  **Modo de falha do concorrente é estético:** *"mal cuidada e super apagada"*, a ponto de
+  **parecer a própria coisa que existia para evitar**. Isso tira **U06** de 🔴.
+  Ressalva que corta a favor: P04 é o não-cego e o follow-up foi primado, mas o conteúdo
+  **contradiz a versão conveniente anterior dele**.
+  ⚠️ **O selo (degrau 1) sobrevive, mas o argumento para ele caiu pela terceira vez.**
+  Vale só o estrutural: *construímos porque não aposta em nenhuma suposição 🔴*. Escrever
+  "porque o usuário quer garantia prévia" agora é falso.
+- **H17 (a vitrine vazia É a geladeira)** — decisão: o seed vira habilitador com critério
+  verificável. **Toda categoria exposta no filtro devolve ≥3 itens** (não "≥M categorias
+  distintas" — chip que devolve zero é o sinal "super apagada"; categoria sem conteúdo não
+  aparece no filtro), **≥12 no total** (preenche a grade no desktop, onde a demo começa),
+  sem passo manual. Os números são `inferido`; a **regra** de que toda categoria visível
+  tem conteúdo é o que não pode cair. Quarto critério, da lente de produto: **o conteúdo
+  do seed precisa ser plausível** — "Livro 1, Livro 2" reproduz o mesmo sinal de abandono.
+  Motivo forte, de [[H15]]: uma vitrine vazia é o modo de falha documentado do concorrente
+  real, na palavra do usuário.
+- **H22 (recência > volume, e seed com data fixa apodrece)** — achado do `uxcopy`: as
+  palavras do modo de falha são **`mal cuidada`** e **`super apagada`**, nenhuma sobre
+  quantidade. **O inimigo não é a tela vazia, é a tela sem sinal de cuidado** — uma marca
+  de recência trabalha mais que um contador de volume.
+  ⚠️ Armadilha: **se as datas do seed forem fixas, o sinal de vida vira sinal de
+  abandono sozinho** ("há 2 dias" → "há 3 meses" quando alguém clonar o repo), que é
+  literalmente a história da geladeira, no pior momento possível. E o `requisitos` deu o
+  argumento interno, melhor que o meu: **H-12:264 ("exibe atividade recente") passa verde
+  no dia 1 e vira falso sem nada quebrar.**
+  ⚠️ **Eu propus datas retroativas/espalhadas e RETIREI** — o `uxcopy` me derrubou com o
+  critério que eu mesmo defendia. A distinção que faltava: **o título é ficção sobre o
+  mundo; a data é afirmação do sistema sobre a própria história.** "Existe um anúncio de
+  Calculadora HP 50g" é verdadeiro; "publicado há 2 dias" é **falso e o sistema sabe**,
+  porque ele criou o registro agora. Separam-se por **quem observou o evento**.
+  Confissão para o registro: eu empurrei as datas 24h para trás **para encobrir um bug de
+  fuso horário**, e vendi como *"remove o modo de falha em vez de detectá-lo"*. E defendi
+  18 carimbos iguais como "lê como fixture" — ou seja, **preferi uma mentira porque ela
+  parecia melhor**, defendendo o critério de plausibilidade que eu mesmo escrevi.
+  **Cláusula correta:** as datas do seed são **o instante em que o seed rodou**, sem
+  retroação — e **o seed executa na subida do container, não no build da imagem** (se
+  rodar no build, as datas ficam cozidas e o apodrecimento volta, invisível). Assim quem
+  clonar em outubro sobe e a landing diz **"último item publicado hoje"**: verdade
+  literal, mais forte que qualquer "há 2 dias" fabricado. Critério de teste vira exato —
+  *"a data do item mais recente é a do boot"*. Se o container rodar 3 meses parado e a
+  copy disser "há 3 meses", **está correto: o sistema está parado.**
+  O **fuso** volta a ser decisão de W0 (UTC no armazenamento, fuso explícito na
+  renderização) + critério negativo: **nenhum item exibido tem data posterior a `now()`**,
+  e a faixa < 24h precisa de um termo que aguente o zero.
+  Fronteira da honestidade: simular **dados** é autorizado, simular **resultados** não —
+  **não marcar o seed como sintético na interface**; dizer no README.
+- **H23 (a interface entrega a resolução do medo sem nomeá-lo)** — eu errei ao dizer que
+  a copy "responde à frase *espalhando lixo*". Ela responde ao **medo**, não à frase.
+  *"Seu livro está com a Marina"* faz o trabalho; *"não foi para o lixo"* faz o trabalho
+  **e planta a dúvida** em quem não a trouxe. Regra geral do `uxcopy`, e vale para tudo
+  que este war room produziu: **o avaliador leu o discovery, o estudante não.**
+  Verbo do CTA: **"publicar"** — a palavra é escolha nossa sem lastro de usuário, mas a
+  **exigência de neutralidade de modo** é documentada (edital linha 21, *"doação ou
+  venda"*) e sustentada pelo Achado 5. "Desapegar" e "anunciar" estão **excluídos por
+  evidência negativa** (ver [[H16]]).
+- **H20 (a vitrine não exibe o nome de quem publicou)** — o T0 rodou (`respostas:172`):
+  a busca do TORPEDO é **por nome, ou parte do nome**. Logo **nome é chave de
+  endereçamento**, e nome na vitrine torna o gate contornável — some a telemetria e some
+  o gatilho de segunda visita com que [[H4]] foi rebaixada. Nome e canal se revelam
+  **juntos, atrás do gate**. Restrição de produto que vai junto: **esconder o nome não
+  pode virar esconder a pessoa** — o card precisa sinalizar gente atrás, senão vira
+  catálogo automático, primo do "super apagada".
+  ⚠️ **Eu propus *"publicado por um membro do campus"* e estava errado** — sob a opção C
+  não temos "membro", temos alguém que informou endereço que casa com regex. Regra que
+  substitui: **o card pode afirmar que existe um autor; não pode caracterizá-lo.** O
+  honesto é um **fato sobre o sistema** (há autor, e falar com ele exige se identificar),
+  não uma alegação sobre a pessoa. Nada que descreva quem publicou aparece antes do gate.
+  Formulação do `tecnico` que generaliza: **o card, o selo e o pitch são três renderizações
+  do mesmo fato e precisam dizer a mesma coisa.**
+  E ao escolher o chat do campus como canal, o campo **vem pré-preenchido** e explica —
+  nunca rejeita apelido depois de digitado. Mas a frase não pode ser *"o nome do seu
+  cadastro"* (não há cadastro da universidade para consultar; o nome é autodeclarado) e sim
+  ***"o chat do campus busca por nome — use exatamente como você aparece lá"***.
+- **H21 (o critério do seed é de TELA, não de API)** — erro meu corrigido pelo
+  `requisitos`: escrevi "`GET /api/anuncios` devolve ≥12" quando o efeito desejado é a
+  tela não parecer apagada; recorte esconde metade e o critério passa verde com o objetivo
+  falho. Forma certa: *"a vitrine exibe ao menos 12; ao filtrar por qualquer categoria
+  mostrada, exibe ao menos 3"*. **E o seed deve ser MAIOR que o limite** (~18 base / 12 na
+  tela): se couber inteiro, *"últimos itens anunciados"* (edital linha 32) nunca demonstra
+  nada. Defesa complementar do `requisitos`: **o edital autorizou simular dados** (linha
+  31) — simulamos dados e recusamos simular resultados, ou seja, **fazemos menos do que
+  foi autorizado**. Vale no README e na narração do minuto 0:00–1:00.
+- **H19 (base vazia mostra o bloco com 0)** — não esconder o bloco de estatísticas.
+  Razão decisiva: **um 0 visível é o único alarme de que o seed de [[H17]] falhou**; bloco
+  escondido + seed que não roda = página que parece razoável e ninguém percebe.
+  ⚠️ **Retirei a palavra "ainda"** que eu tinha proposto junto: ela colide com a lista de
+  proibidas do `uxcopy`, cujo caso central é *"ninguém demonstrou interesse **ainda**"* —
+  promessa por pressuposição feita a quem tem um bem em jogo. Recusei o meio-termo
+  (proibir por família de estado vazio): **regra de lint com exceção custa mais do que a
+  palavra vale**, e alguém aplicaria a exceção justamente onde ela machuca. Com [[H17]] o
+  visitante real nunca vê base vazia, e [[H22]] resolve melhor o mesmo problema. O que
+  sustentava a decisão era o bloco presente e o 0 — o resto era decoração minha.
+- **H18 (congela o nome, remove o contato)** — depois da entrega, "meus itens" mostra o
+  **nome de exibição congelado no momento da marcação** (é a memória do gesto — a tela
+  responde ao *"fiquei INSEGURO se realmente foi útil"*) e **não mostra o contato**, nem
+  vivo nem congelado (a conversa acabou; canal aberto para transação encerrada é
+  superfície sem função). Resolve os dois lados em vez de escolher: a exposição **diminui**
+  frente às duas alternativas. Mesma regra de [[H14]] — identificar não é ser encontrável.
+  ⚠️ A FK `anuncio.entregue_para → interesse.id` implementa "referência viva" **por
+  omissão**: silêncio aqui é decisão tomada por uma célula de tabela.
+  Resíduo declarado: congelar preserva exposição **já ocorrida**, para uma pessoa, sobre
+  transação da qual ela participou. Exclusão de dados é outro mecanismo, fora dos 15 dias.
+- **H16 (vocabulário: quase tudo é primado)** — do papel `uxcopy`, verificado por grep:
+  **"desapegar"** e **"anunciar/anúncio"** aparecem só em **enunciado** (4× cada) e
+  **zero vezes em resposta**; **"item"** não existe no corpus. Logo o CTA do edital e o
+  nome do produto saem do léxico primado. Correção minha à contagem dele: **"lixo" são
+  duas pessoas (P01 1× + P04 4×), não três** — e P04 é o não-cego.
+  **"Espalhando lixo"** é a frase mais forte do corpus para o medo de quem doa: não é
+  "não confio no destino", é **"tenho medo de que meu gesto tenha sido lixo"**.
 - **H12 (a palavra na tela é a feature — "identificado", nunca "verificado")** — decisão
   fechada: regex de domínio institucional no cadastro (~15 min), **não** confirmação por
   e-mail (~meio dia + container). O argumento não é preço: **a rede pessoal, que é o

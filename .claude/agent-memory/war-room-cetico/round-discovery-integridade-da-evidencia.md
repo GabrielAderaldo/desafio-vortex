@@ -53,6 +53,17 @@ primada parece dado. Vale para todo questionário futuro deste projeto.
 - **O mediador registrou sozinho** a quebra da premissa de P04 sobre matrícula "interna" vs
   vitrine pública, e a tensão PWA × uso episódico. Boas capturas, não atacar.
 
+## Modo de falha dominante da sala: buscar num lugar, concluir sobre o conjunto
+
+**Três ocorrências no mesmo round.** `produto` e `tecnico`: grep no arquivo de respostas,
+não acharam P04, concluíram "sem fonte auditável" — estava no log de prompts. `uxcopy`:
+grep nas histórias e no PRD, concluiu "ninguém decidiu sobre seed" — estava em
+`09-corte-de-escopo.md:98-108`, com regra explícita.
+
+**A defesa que funcionou foi sempre outro papel conferindo, nunca o rigor de quem afirmou.**
+Antes de aceitar "X não existe / ninguém decidiu", rodar `grep -rn` no diretório inteiro.
+Custa segundos.
+
 ## O eco se repetiu — em 24h, com outro objeto
 
 `produto` e `tecnico` rodaram o mesmo grep, viram que P04 não está no arquivo de respostas
@@ -109,6 +120,23 @@ Maior risco real não está no worksheet: **a data-limite de submissão**, desco
 (`grep -rn` → vazio) e é relato de **fricção recorrente** — corta contra `02-sintese:38-40`,
 que usa a mesma resposta para declarar refutada a hipótese de fricção de canal.
 **O enquadramento A, marcado refutado em `02:190`, volta a ficar aberto.**
+
+## Checagem obrigatória: o argumento prova demais?
+
+Aconteceu **duas vezes na mesma sessão**, em direções opostas. `ddd` usou "o sistema não
+afirma o que não observa" contra o estado *reservado* — o mesmo princípio engole *entregue*,
+que é o núcleo do enquadramento. Eu usei "atividade que não aconteceu" contra semear
+entregas — o mesmo teste bane o item semeado, que já está autorizado.
+
+**Antes de usar um princípio para barrar X, aplicá-lo ao que já foi aprovado.** Se barra
+junto, o princípio não é o motivo — é outra coisa, e é ela que tem que ser escrita.
+
+## Usar a regra afiada que já está escrita, não a frouxa que serve
+
+Eu tinha citado `09-corte-de-escopo.md:107` (*"simular dados, não simular resultados"*) e
+depois fui buscar o critério 4 do H-12 para sustentar a mesma conclusão — mais frouxo, e
+foi por onde o argumento quebrou. **Quando duas regras do repo sustentam a mesma conclusão,
+usar a mais restrita.**
 
 ## Padrão a vigiar: critério de ranking que escorrega para mensurabilidade
 
