@@ -26,6 +26,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 GUARD = RAIZ / ".claude/hooks/adr-guard.sh"
 LOG_HOOK = RAIZ / ".claude/hooks/ai-log-prompt.sh"
+ANSWER_HOOK = RAIZ / ".claude/hooks/ai-log-answer.sh"
 STATUSLINE = RAIZ / ".claude/statusline.sh"
 
 VERBOSE = "-v" in sys.argv
@@ -219,6 +220,113 @@ def testar_ai_log(base: Path) -> None:
     resultado("exit 9 marca o aviso de credencial", "Credencial real detectada" in novo)
 
 
+# ------------------------------------------------------------ ai-log-answer ---
+
+def testar_ai_log_answer(base: Path) -> None:
+    """Respostas ao AskUserQuestion.
+
+    Nasceu do EP-008: a intervenção que derrubou o enquadramento do produto
+    inteiro foi escrita como observação numa resposta de pergunta, e o hook de
+    prompt não observa esse caminho. O diário perdeu a fala mais decisiva do
+    projeto sem que nada indicasse a lacuna.
+    """
+    print("ai-log-answer.sh")
+    proj = base / "proj-answer"
+    (proj / ".claude/hooks").mkdir(parents=True, exist_ok=True)
+    hook = proj / ".claude/hooks/ai-log-answer.sh"
+    shutil.copy(ANSWER_HOOK, hook)
+    hook.chmod(0o755)
+    redactor = proj / ".claude/hooks/redact-secrets.pl"
+    log = proj / ".ai-log/raw-prompts.md"
+
+    def enviar(resposta, *, tool: str = "AskUserQuestion",
+               pergunta: str = "Qual caminho seguir?") -> tuple[int, str]:
+        payload = {
+            "tool_name": tool,
+            "cwd": str(proj),
+            "session_id": "test5678",
+            "tool_input": {"questions": [{"header": "Rumo", "question": pergunta}]},
+            "tool_response": resposta,
+        }
+        code, out, _ = rodar(["/bin/bash", str(hook)], json.dumps(payload),
+                             env={"CLAUDE_PROJECT_DIR": str(proj)})
+        return code, out
+
+    def set_redactor(corpo: str) -> None:
+        redactor.write_text(corpo, encoding="utf-8")
+        redactor.chmod(0o755)
+
+    set_redactor("#!/bin/sh\ncat\nexit 0\n")
+
+    enviar("escolhi a opção B porque o custo é menor")
+    conteudo = log.read_text(encoding="utf-8")
+    resultado("resposta é gravada", "escolhi a opção B" in conteudo)
+    resultado("resposta tem marcador próprio", "<!-- ai-log:answer -->" in conteudo)
+    resultado("marcador de resposta não colide com o de prompt",
+              "<!-- ai-log:entry -->" not in conteudo)
+    resultado("a pergunta é gravada junto", "Qual caminho seguir?" in conteudo)
+
+    # A observação escrita à mão é o motivo de o hook existir — o EP-008 registra
+    # que ela carrega a intervenção, não a opção escolhida.
+    antes = log.read_text(encoding="utf-8")
+    enviar('=(no option selected) notes: e se isso for só um grupo de WhatsApp?')
+    novo = log.read_text(encoding="utf-8")[len(antes):]
+    resultado("observação escrita à mão é preservada",
+              "só um grupo de WhatsApp" in novo)
+
+    # Outra ferramenta qualquer não pode poluir o diário.
+    antes = log.read_text(encoding="utf-8")
+    code, _ = enviar("conteúdo de outra ferramenta", tool="Bash")
+    resultado("ignora ferramentas que não são AskUserQuestion",
+              log.read_text(encoding="utf-8") == antes and code == 0)
+
+    # tool_response varia de forma conforme o caminho; perder a fala por causa de
+    # formato seria o mesmo defeito que o hook existe para corrigir.
+    antes = log.read_text(encoding="utf-8")
+    enviar([{"type": "text", "text": "resposta veio em array de blocos"}])
+    novo = log.read_text(encoding="utf-8")[len(antes):]
+    resultado("tool_response em array de blocos é extraído",
+              "resposta veio em array de blocos" in novo)
+
+    antes = log.read_text(encoding="utf-8")
+    enviar({"text": "resposta veio em objeto"})
+    novo = log.read_text(encoding="utf-8")[len(antes):]
+    resultado("tool_response em objeto é extraído", "resposta veio em objeto" in novo)
+
+    enviar("esta resposta tem [NOLOG] dentro")
+    conteudo = log.read_text(encoding="utf-8")
+    resultado("[NOLOG] omite a resposta", "esta resposta tem [NOLOG] dentro" not in conteudo)
+    resultado("[NOLOG] registra o stub", "resposta omitida do log" in conteudo)
+
+    # Mesmo contrato do hook de prompt: falha do redactor não pode gravar fence
+    # vazio, porque a perda passa despercebida em revisão (EP-004 nº5).
+    set_redactor("#!/bin/sh\nexit 3\n")
+    antes = log.read_text(encoding="utf-8")
+    _, out = enviar("resposta que se perderia em silêncio")
+    novo = log.read_text(encoding="utf-8")[len(antes):]
+    resultado("REGRESSÃO: falha do redactor não grava fence vazio",
+              "~~~\n\n~~~" not in novo and "~~~\n~~~" not in novo)
+    resultado("REGRESSÃO: falha do redactor é registrada de forma visível",
+              "RESPOSTA NÃO REGISTRADA" in novo)
+    resultado("REGRESSÃO: falha do redactor avisa na UI", "systemMessage" in out)
+    resultado("resposta não é gravada quando o redactor falha",
+              "resposta que se perderia" not in novo)
+
+    set_redactor("#!/bin/sh\ncat >/dev/null\nexit 0\n")
+    antes = log.read_text(encoding="utf-8")
+    enviar("redactor devolve vazio mas diz que deu certo")
+    novo = log.read_text(encoding="utf-8")[len(antes):]
+    resultado("saída vazia com exit 0 também é tratada como falha",
+              "RESPOSTA NÃO REGISTRADA" in novo)
+
+    set_redactor("#!/bin/sh\nsed 's/SEGREDO/[REDIGIDO]/'\nexit 9\n")
+    antes = log.read_text(encoding="utf-8")
+    enviar("colei a chave SEGREDO na resposta")
+    novo = log.read_text(encoding="utf-8")[len(antes):]
+    resultado("exit 9 grava o texto redigido", "[REDIGIDO]" in novo)
+    resultado("exit 9 marca o aviso de credencial", "Credencial real detectada" in novo)
+
+
 # --------------------------------------------------------------- statusline ---
 
 def testar_statusline() -> None:
@@ -256,7 +364,7 @@ def testar_statusline() -> None:
 
 
 def main() -> int:
-    for f in (GUARD, LOG_HOOK, STATUSLINE):
+    for f in (GUARD, LOG_HOOK, ANSWER_HOOK, STATUSLINE):
         if not f.is_file():
             print(f"erro: {f} não encontrado", file=sys.stderr)
             return 2
@@ -265,6 +373,7 @@ def main() -> int:
         base = Path(tmp)
         testar_adr_guard(base)
         testar_ai_log(base)
+        testar_ai_log_answer(base)
         testar_statusline()
 
     print()
